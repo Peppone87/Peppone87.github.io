@@ -18,7 +18,7 @@ defined('APPLICATION_PATH')
 defined('APPLICATION_ENV') || define('APPLICATION_ENV', getenv("APPLICATION_ENV") ? getenv("APPLICATION_ENV") : "production");
 
 $rootPath = dirname(__FILE__);
- 
+
 if (getenv("GAME_SERVER_NAME") == "test") {
   set_include_path($rootPath . '/'.getenv("GAME_TYPE").'_test/application/models' . PATH_SEPARATOR . $rootPath . '/'.getenv("GAME_TYPE").'_test/library');
 } else {
@@ -29,7 +29,7 @@ require_once 'Mob/Server.php';
 
 $publicPath = Mob_Server::isGameServer() ? Mob_Server::getGameType()."_".Mob_Server::getSubDomain() : "public_html";
 if (getenv("GAME_SERVER_NAME") == "test") $publicPath = "vendetta_test";
-                            
+
 defined('PUBLIC_PATH')
     || define('PUBLIC_PATH',
               realpath(dirname(__FILE__) . '/'.$publicPath));
